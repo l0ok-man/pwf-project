@@ -251,4 +251,4 @@ chmod -R 775 storage bootstrap/cache
 
 Tugas Pemrograman Web Framework - Sistem Informasi
 
-https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTgxYnZocGRhaHV3NGVuYmVlMW00dWtmNzBub2Q4NGVuM21jaGs2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif
+![Library System Login Demo](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTgxYnZocGRhaHV3NGVuYmVlMW00dWtmNzBub2Q4NGVuM21jaGs2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPnAiaMCws8nOsE/giphy.gif)
