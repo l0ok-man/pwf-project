@@ -26,13 +26,13 @@ class BorrowingController extends Controller
 
     public function store(BorrowingRequest $request)
     {
-        DB::transaction(function () use ($request) {
-            $book = Book::findOrFail($request->book_id);
-            
-            if ($book->available_stock <= 0) {
-                abort(400, 'Stok buku habis.');
-            }
+        $book = Book::findOrFail($request->book_id);
+        
+        if ($book->available_stock <= 0) {
+            return back()->withErrors(['book_id' => 'Stok buku habis.']);
+        }
 
+        DB::transaction(function () use ($request, $book) {
             Borrowing::create([
                 'book_id' => $book->id,
                 'member_id' => $request->member_id,
@@ -48,7 +48,12 @@ class BorrowingController extends Controller
         return redirect()->route('borrowings.index')->with('success', 'Peminjaman berhasil dicatat.');
     }
 
-    public function returnBook(Borrowing $borrowing)
+    public function return(Borrowing $borrowing)
+    {
+        return view('borrowings.return', compact('borrowing'));
+    }
+
+    public function confirmReturn(Borrowing $borrowing)
     {
         if ($borrowing->status === 'returned') {
             return back()->with('error', 'Buku sudah dikembalikan sebelumnya.');

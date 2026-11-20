@@ -41,9 +41,14 @@ class BookController extends Controller
         $oldStock = $book->stock;
         $newStock = $data['stock'];
         $diff = $newStock - $oldStock;
+        $newAvailableStock = $book->available_stock + $diff;
+
+        if ($newAvailableStock < 0) {
+            return back()->withErrors(['stock' => 'Stok tidak dapat dikurangi di bawah peminjaman aktif.']);
+        }
         
         $book->update(array_merge($data, [
-            'available_stock' => $book->available_stock + $diff,
+            'available_stock' => $newAvailableStock,
         ]));
         
         return redirect()->route('books.index')->with('success', 'Buku berhasil diperbarui.');
