@@ -40,13 +40,6 @@
 
                         <button type="submit" class="btn btn-primary w-100">Login</button>
                     </form>
-
-                    <hr>
-                    <small class="text-muted">
-                        <strong>Akun Test:</strong><br>
-                        Admin: admin@library.local / password<br>
-                        Petugas: petugas@library.local / password
-                    </small>
                 </div>
             </div>
         </div>
